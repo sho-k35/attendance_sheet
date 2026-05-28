@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>塾管理システム</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+<div class="container">
+    <h1>出席・成績一括管理</h1>
+
+    <!-- 1. プルダウン式の検索エリア -->
+    <div class="search-box">
+        <label>学年: 
+            <select id="inputGrade">
+                <!-- これまでのCSVの形式に合わせるため、valueには"1"などを設定 -->
+                <option value="">指定なし</option>
+                <option value="1">1年</option>
+                <option value="2">2年</option>
+                <option value="3">3年</option>
+            </select>
+        </label>
+        <label>クラス: 
+            <select id="inputClass">
+                <option value="">指定なし</option>
+                <option value="S">S</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+            </select>
+        </label>
+        <label>学校: 
+            <select id="inputSchool">
+                <option value="">指定なし</option>
+                <option value="大阪">大阪</option>
+                <option value="京都">京都</option>
+                <option value="奈良">奈良</option>
+            </select>
+        </label>
+        <button class="btn-search" onclick="searchStudents()">検索</button>
+    </div>
+
+    <!-- 2. 生徒一覧テーブル -->
+    <table>
+        <thead>
+            <tr>
+                <th>生徒ID</th>
+                <th>氏名</th>
+                <th>フリガナ</th>
+                <th>記録カテゴリ</th>
+                <th>値</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+            <tr><td colspan="5" style="text-align: center; color: #666;">検索ボタンを押してください</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 3. 一括保存ボタン -->
+    <div class="action-area">
+        <button id="btnSaveAll" class="btn-save-all" onclick="saveAllRecords()">保存</button>
+    </div>
+</div>
+
+<script src="js/get_data.js"></script>
+<script src="js/register_data.js"></script>
+
+</body>
+</html>
